@@ -1,3 +1,4 @@
+/* Reset and Base Styling */
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +6,14 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #f06, #f79);
+    color: #fff;
 }
 
 header {
     background-color: #333;
-    color: white;
     padding: 10px 0;
     text-align: center;
 }
@@ -27,16 +28,28 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f79;
 }
 
 section {
-    padding: 20px;
+    padding: 40px;
     margin: 20px auto;
     width: 80%;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s forwards;
 }
 
 h1, h2 {
@@ -44,31 +57,36 @@ h1, h2 {
 }
 
 button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
+    background-color: #f79;
+    color: #fff;
+    padding: 15px 30px;
     border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #f06;
 }
 
 form input, form textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 form button {
     background-color: #0275d8;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {
@@ -77,7 +95,46 @@ form button:hover {
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #333;
-    color: white;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.slideIn {
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        width: 90%;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
 }
